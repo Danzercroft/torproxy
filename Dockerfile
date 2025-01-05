@@ -3,6 +3,7 @@ FROM alpine
 
 # Install tor and privoxy
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
+    echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
     apk --no-cache --no-progress upgrade && \
     apk --no-cache --no-progress add bash curl privoxy shadow tini tor tzdata lyrebird &&\
     cp /etc/privoxy/config.new /etc/privoxy/config &&\
@@ -59,11 +60,10 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
     echo 'UseBridges 1' >> /etc/tor/torrc && \
     echo 'ClientTransportPlugin obfs4 exec /usr/bin/lyrebird managed' >> /etc/tor/torrc && \
     # You can change bridge
-    echo 'Bridge obfs4 213.29.63.159:65534 362051D19E695FED4C2B14B159447E6DADF24339 cert=zeNxMThA3+j7ZJygu1Tro6vBR9R2ZOWP46lsP9Cxt/7D8PkuzLUYgeALVu6Y6YLJ5UlrGw iat-mode=0' >> /etc/tor/torrc && \
-    echo 'Bridge obfs4 84.38.64.242:80 9FF3A220663997FDA707D85B3EF2DAC499B35150 cert=wHA3ovYq7rG/5UdW/7pSL5IHVofT2GhddvmpjWtOz91+2OKEUwehcGZj0wKXx4V+f12OCA iat-mode=0' >> /etc/tor/torrc && \
-    echo 'Bridge obfs4 142.171.234.45:8080 481DE3C95ACD9AB10B5B64E955EAE8D3C2FB435C cert=gWKeKf/9/wcImqxw2YeSEIZ85jzMYk3yh1EHXxDj44d0JPWSnXdrpOpb37G/Qu3T4GjxcQ iat-mode=0' >> /etc/tor/torrc && \
+    echo 'Bridge obfs4 194.164.161.57:34182 E2D9A6819DF983B4FC138601399249E33E7CCE31 cert=OH2TOTA/EtDOEaKEMD1gAcDEKMOQwH+ZhxSVfa98b0yybvGCg5Eo5tYnhNk0CWWeLBctFQ iat-mode=0' >> /etc/tor/torrc && \
+    echo 'Bridge obfs4 195.231.85.247:10021 AD26290480151BAA4A8F695C11BD7B141284B691 cert=iohB8SdMNEkqxItwuRi78F/AFczuTUPC7C+2cfh81PN/yhWE/NQci7RW8VLMZwLPfK1dYg iat-mode=0' >> /etc/tor/torrc && \
     mkdir -p /etc/tor/run && \
-    chown -Rh tor. /var/lib/tor /etc/tor/run && \
+    chown -Rh tor /var/lib/tor /etc/tor/run && \
     chmod 0750 /etc/tor/run && \
     rm -rf /tmp/*
 

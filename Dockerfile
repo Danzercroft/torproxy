@@ -60,8 +60,8 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
     echo 'UseBridges 1' >> /etc/tor/torrc && \
     echo 'ClientTransportPlugin obfs4 exec /usr/bin/lyrebird managed' >> /etc/tor/torrc && \
     # You can change bridge
-    echo 'Bridge obfs4 194.164.161.57:34182 E2D9A6819DF983B4FC138601399249E33E7CCE31 cert=OH2TOTA/EtDOEaKEMD1gAcDEKMOQwH+ZhxSVfa98b0yybvGCg5Eo5tYnhNk0CWWeLBctFQ iat-mode=0' >> /etc/tor/torrc && \
-    echo 'Bridge obfs4 195.231.85.247:10021 AD26290480151BAA4A8F695C11BD7B141284B691 cert=iohB8SdMNEkqxItwuRi78F/AFczuTUPC7C+2cfh81PN/yhWE/NQci7RW8VLMZwLPfK1dYg iat-mode=0' >> /etc/tor/torrc && \
+    echo 'Bridge obfs4 82.64.115.17:990 B08238781C2CD80DBD95AEABEB6F6C75F2E2CEB6 cert=1udeMlFNs3sJ20zwpPE6nShZqqwDb3F1ET4KzfSfD+fktkue9zNx9H3t+yLCPAsg+6UTUA iat-mode=1' >> /etc/tor/torrc && \
+    echo 'Bridge obfs4 103.17.154.137:443 7CA829973901F71B93BBF2014C0EBEA366C21A2B cert=xcxDL1FZTXJHhFdDIHZWf1yqheNdB52l1ztDMliS3myvoeS6aNV0bg8/K8pkrWh7LM9dWg iat-mode=0' >> /etc/tor/torrc && \
     mkdir -p /etc/tor/run && \
     chown -Rh tor /var/lib/tor /etc/tor/run && \
     chmod 0750 /etc/tor/run && \
